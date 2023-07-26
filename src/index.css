@@ -36,6 +36,7 @@
     height: 60px;
     color: #333;
     font-weight: bold;
+    font-size: 1.5rem;
     border-radius: 25px;
     border: 1px solid transparent;
     transition: 0.4s ease-in-out;
@@ -43,8 +44,8 @@
 }
 
 .buttonDecoration:hover {
-    background-color: #ffffffcb;
-    color: #333232;
+    background-color: #333232;
+    color: #fff;
 
 }
 

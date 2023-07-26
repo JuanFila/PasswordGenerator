@@ -1,6 +1,8 @@
 import './index.css'
 import ButtonComponnents from './components/button'
 import { useState } from 'react'
+import {ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -24,12 +26,12 @@ function App() {
   const ClearPassword = () => {
     setPassword('')
     setclicked(false)
+    warningError()
 
   }
 
   const clickedstylePasswords = () => {
     setclicked(!clicked)
-    console.log(clicked)
   }
 
   const stylePasswords = {
@@ -41,9 +43,24 @@ function App() {
     borderRadius:"25px",
   }
 
+
   const buttonCopy = () => {
     navigator.clipboard.writeText(password)
+    SuccessError()
   }
+
+  const SuccessError = () => toast.success('Senha copiada com sucesso!',{
+    position:"bottom-center",
+    theme:"dark",
+    autoClose: 1500,
+  });
+
+  const warningError = () => toast.warning('A campo de senha foi limpado',{
+    position:"bottom-center",
+    theme:"dark",
+    autoClose: 1500,
+  });
+
 
   return (
     <div className='container'>
@@ -63,6 +80,7 @@ function App() {
       onClick={ClearPassword} 
       text={"Limpar"}
       />
+      <ToastContainer/>
     </div>
   )
 }
